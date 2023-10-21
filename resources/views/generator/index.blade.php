@@ -16,7 +16,7 @@
             <tr class="">
                 <th class="p-2">Product naam</th>
                 <th class="p-2">Merk</th>
-                <th class="p-2">Doel</th>
+                <th class="p-2 hidden md:block">Doel</th>
                 <th class="p-2">Aangemaakt</th>
             </tr>
             </thead>
@@ -26,7 +26,7 @@
 
                     <td class="font-body p-2 table-cell"><a href="{{ route('generator.show', $text->id) }}"> {{ $text->product_name }} </a></td>
                     <td class="font-body p-2 table-cell"> {{ $text->brands->name}} </td>
-                    <td class="font-body p-2 table-cell"> {{ $text->brands->goal }} </td>
+                    <td class="font-body p-2 table-cell hidden md:block"> {{ $text->brands->goal }} </td>
                     <td class="font-body p-2 table-cell"> {{ $text->created_at->diffForHumans()  }}</td>
                 </tr>
 

@@ -7,7 +7,7 @@
         right: 0;
         bottom: 0;
         width: 100%;
-        background: rgba(0,0,0,0.75) url("/1493.gif") no-repeat center center;
+        background: rgba(0,0,0,1) url("https://media1.giphy.com/media/cnzP4cmBsiOrccg20V/giphy.gif?cid=ecf05e47v7ure0mpcvrj9nfdp57rooj22phaph2ci7kycba0&ep=v1_gifs_related&rid=giphy.gif&ct=g") no-repeat center center;
         z-index: 99999;
     }
 </style>
@@ -21,7 +21,7 @@
     <div style="display: block; margin-left:auto; margin-right:auto; max-width: 600px;" class="container  text-white py-4 px-4 max-w-3xl">
         <h1 class="title">Genereer een tekst</h1>
         <p class="body">Vul hieronder de benodige product gegevens in en genereer een tekst.</p>
-        <form method="post" action="{{ route('generator.store') }}" enctype="multipart/form-data">
+        <form method="post" action="{{ route('generator.store') }}" id="frmSubmit" enctype="multipart/form-data">
             @csrf
             <!-- Productnaam -->
             <div class="mt-3">
@@ -77,10 +77,9 @@
     </div>
 
     <script>
-        $(function() {
-            $( "form" ).submit(function() {
-                $('#loader').show();
-            });
-        });
+        window.onload = function () {
+            document.getElementById("frmSubmit").onsubmit = function onSubmit(form) {
+                document.getElementById('loader').style.display="block";
+            }}
     </script>
 </x-app-layout>

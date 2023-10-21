@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BrandsController;
 use App\Http\Controllers\GeneratorController;
+use App\Http\Controllers\Dashboard;
 
 /*
 |--------------------------------------------------------------------------
@@ -40,4 +41,8 @@ Route::middleware('auth')->group(function(){
 Route::middleware('auth')->group(function(){
     Route::resource('/generator', GeneratorController::class);
 
+});
+
+Route::middleware('auth')->group(function () {
+    Route::get('/dashboard', [Dashboard::class, 'index'])->name('dashboard');
 });
